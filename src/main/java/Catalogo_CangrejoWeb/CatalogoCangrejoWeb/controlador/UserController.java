@@ -36,7 +36,7 @@ public class UserController {
     public List<User> getAll() {
         return userService.getAll();
     }
- @GetMapping("/{id}")
+    @GetMapping("/{id}")
     public Optional <User> getUser(@PathVariable("id") int id) {
         return userService.getUser(id);
     }
@@ -63,5 +63,9 @@ public class UserController {
       @GetMapping("/emailexist/{email}")
     public boolean emailExists(@PathVariable("email") String email) {
         return userService.emailExists(email);
+    }
+    @GetMapping("/birthday/{month}")
+    public Optional<User> birthtDayList(@PathVariable("month") String monthBirthtDay) {
+        return userService.birthtDayList(monthBirthtDay);
     }
 }
